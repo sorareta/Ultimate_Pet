@@ -14,6 +14,6 @@ Rails.application.routes.draw do
  
 
  
-  resources :pets, defaults: {format: 'html'}
+  resources :pets
 
 end

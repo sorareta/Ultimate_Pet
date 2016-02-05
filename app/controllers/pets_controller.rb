@@ -20,10 +20,13 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
-    respond_to do |format|
+       respond_to do |format|
       if @pet.user != current_user
         format.html { redirect_to @pet, notice: 'Cannot edit because you are not the owner.' }
-        format.json { render json: @pet.errors, status: :unprocessable_entity }
+      else
+          
+          format.html {render :edit}
+          format.json { render :show, status: :ok, location: @pet }
       end
     end
   end
@@ -47,13 +50,7 @@ class PetsController < ApplicationController
   # PATCH/PUT /pets/1
   # PATCH/PUT /pets/1.json
   def update
-    respond_to do |format|
-      if @pet.user != current_user
-        #redirect_to root_path
-        format.html { redirect_to @pet, notice: 'Cannot edit because you are not the owner.' }
-        format.json { render json: @pet.errors, status: :unprocessable_entity }
-      end
-    end
+   
     respond_to do |format|
       if @pet.update(pet_params)
         format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
@@ -70,7 +67,7 @@ class PetsController < ApplicationController
   def destroy
     respond_to do |format|
       if @pet.user != current_user
-        format.html { redirect_to @pet, notice: 'Cannot destroy because you are notthe owner.' }
+        format.html { redirect_to @pet, notice: 'Cannot destroy because you are not the owner.' }
       else
           @pet.destroy
           format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
