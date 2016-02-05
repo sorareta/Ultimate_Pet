@@ -28,11 +28,11 @@ Pet
 
 The Pet model represents the pet objects to be listed on the application. It has the following attributes:
 
-name: The pet name given.
-birthday: The birthday of the pet. The application will show the age which is calculated since that date.
-category: the category to which the pet belongs. Available categories are: cat, dog, chinchilla.
-sex: the sex of the pet. Available sex are: male, female.
-user_id: an integer that identifies the User object that owns the pet.
+- name: The pet name given.
+- birthday: The birthday of the pet. The application will show the age which is calculated since that date.
+- category: the category to which the pet belongs. Available categories are: cat, dog, chinchilla.
+- sex: the sex of the pet. Available sex are: male, female.
+- user_id: an integer that identifies the User object that owns the pet.
 
 
 Database
